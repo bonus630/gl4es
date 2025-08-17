@@ -211,6 +211,7 @@ endif()
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 if(NOT WIN32_MSVC)
+    include(CheckCCompilerFlag)
     check_compiler_flag(C -std=gnu11 SUPPORTS_GNU11)
     check_compiler_flag(C -funwind-tables SUPPORTS_UNWIND_TABLES)
     if (SUPPORTS_GNU11)
