@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8.12)
 
 # Import modules
 include(CheckCompilerFlag)
-
+include(CheckCCompilerFlag)
+check_c_compiler_flag(-std=gnu11 SUPPORTS_GNU11)
 project(gl4es LANGUAGES C)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -211,7 +212,6 @@ endif()
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 if(NOT WIN32_MSVC)
-    include(CheckCCompilerFlag)
     check_compiler_flag(C -std=gnu11 SUPPORTS_GNU11)
     check_compiler_flag(C -funwind-tables SUPPORTS_UNWIND_TABLES)
     if (SUPPORTS_GNU11)
