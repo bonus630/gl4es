@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 2.8.12)
 
 # Import modules
-include(CheckCompilerFlag)
+cmake_minimum_required(VERSION 3.16)  # ou mais recente
+project(gl4es C)
 include(CheckCCompilerFlag)
 check_c_compiler_flag(-std=gnu11 SUPPORTS_GNU11)
 project(gl4es LANGUAGES C)
